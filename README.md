@@ -54,7 +54,7 @@ Perform the same steps with the `testdb-original.sql` database export and the `t
 
 ### Explore information stored
 
-// Upcoming
+A few sql scripts have been provided. Feel free to run them in the command line to see sentences extracted from our book databases.
 
 ## Book Parser
 
