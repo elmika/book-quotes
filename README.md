@@ -47,6 +47,11 @@ To load this database using Docker:
 
 The data is now available.
 
+### Load other sample database
+
+Perform the same steps with the `testdb-original.sql` database export and the `testdb_original` database.
+
+
 ### Explore information stored
 
 // Upcoming
