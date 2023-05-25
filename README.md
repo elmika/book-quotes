@@ -47,6 +47,7 @@ To load this database using Docker:
 
 The data is now available.
 
+
 ### Load other sample database
 
 Perform the same steps with the `testdb-original.sql` database export and the `testdb_original` database.
@@ -87,4 +88,12 @@ mysql> SELECT source FROM words GROUP BY source;`
 
 ## Book Parser
 
-// Upcoming
+*These are extracts of the code as I found them, restored in a format that runs, and enhanced with this very readme so that they can be used without further investigation. Refactors and other improvements will be performed once we close this history branch.*
+
+*Note: Because of the above, everything is dumped into the root folder... As is.*
+
+**First test:** We read an extract of "Histoires Extraordinaires", the translation of E.A. Poe by Charles Beaudelaire, and display it on the screen.
+
+To execute, run:
+
+`$perl hola.pl`
