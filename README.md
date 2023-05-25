@@ -56,6 +56,35 @@ Perform the same steps with the `testdb-original.sql` database export and the `t
 
 A few sql scripts have been provided. Feel free to run them in the command line to see sentences extracted from our book databases.
 
+- known sources in testdb: 
+
+```
+mysql> SELECT source FROM sentences GROUP BY source;
+
++----------------+
+| source         |
++----------------+
+| atest.txt      |
+| es_quijote.txt |
+| en_quijote.txt |
+| alice_EN.txt   |
+| alice_FR.txt   |
++----------------+
+```
+
+- known sources in testdb_original: 
+
+
+```
+mysql> SELECT source FROM words GROUP BY source;`
+
++------------------------------+
+| source                       |
++------------------------------+
+| sun_tzu_art_de_la_guerre.txt |
++------------------------------+
+```
+
 ## Book Parser
 
 // Upcoming
