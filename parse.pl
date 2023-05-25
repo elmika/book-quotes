@@ -6,7 +6,14 @@ use base "HTML::Parser";
 
 sub text {
   my ($self, $text) = @_;
-  print $text;
+  my $word='';
+  while(/(\w+)/){
+      # do something with $1
+      $word = $1;
+      print $word."\t";
+      # take it out of the string
+      s/$word//;
+  }
 }
 
 my $p = new HTMLStrip;

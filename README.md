@@ -102,7 +102,7 @@ To execute, run:
 
 ### Read through a large file
 
-We read the complete book "Histoires Extraordinaires", and print it on screen.
+We read the complete book "Histoires Extraordinaires", extract each word, and print it on screen.
 
 To execute, run:
 
