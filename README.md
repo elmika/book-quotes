@@ -92,8 +92,18 @@ mysql> SELECT source FROM words GROUP BY source;`
 
 *Note: Because of the above, everything is dumped into the root folder... As is.*
 
-**First test:** We read an extract of "Histoires Extraordinaires", the translation of E.A. Poe by Charles Beaudelaire, and display it on the screen.
+### First test
+
+ We read an extract of "Histoires Extraordinaires", the translation of E.A. Poe by Charles Beaudelaire, and display it on the screen.
 
 To execute, run:
 
 `$perl hola.pl`
+
+### Read through a large file
+
+We read the complete book "Histoires Extraordinaires", and print it on screen.
+
+To execute, run:
+
+`$perl parse.pl`
