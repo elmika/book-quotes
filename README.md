@@ -5,6 +5,17 @@
 - `hello.pl` Hello world!
 - `argv.pl` Test command line input
 
+## Containerized perl app
+
+Build perl image
+
+	`$docker build -t perl-app .`
+
+Run perl script hello
+
+	`$docker run perl-app`
+
+
 ## Books and Words
 
 This is a project developped using perl in 2009.
@@ -91,6 +102,8 @@ mysql> SELECT source FROM words GROUP BY source;`
 *These are extracts of the code as I found them, restored in a format that runs, and enhanced with this very readme so that they can be used without further investigation. Refactors and other improvements will be performed once we close this history branch.*
 
 *Note: Because of the above, everything is dumped into the root folder... As is.*
+
+*Additional Note: As we start to run our code in containers, we will move it to the src/app folder.*
 
 ### First test
 
