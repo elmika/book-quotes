@@ -6,16 +6,25 @@ use base "HTML::Parser";
 
 BEGIN {
 my $x=0;
+my @words=();
 
 sub text {
   my ($self, $text) = @_;
   my $word='';
   while(/((\w|[ÆÁÂÀÅÃÄÇÐÉÊÈËÍÎÌÏÑÓÔÒØÕÖÞÚÛÙÜÝáâæàåãäçéêèðëíîìïñóôòøõößþúûùüýÿ])+)/){
       # do something with $1
+      $x++;
       $word = $1;
       $word =~ s/[^\x00-\x7F]//g; # Hot fix: Remove characters not supported by our database.
       # print $word."\t";
-      insert_db($word);
+      if($x==100){
+        insert_db(@words);
+        @words=();
+        print ($x."\t");
+        $x=0;
+      }else{
+        push @words, $word;
+      }
       # take it out of the string
       s/$word//;
   }
@@ -41,7 +50,12 @@ sub insert_db {
   $sth = $dbh->prepare("INSERT INTO words
                           (word)
                            values
-                          ('$myWord')");
+                          (?)");
+  while ($myWord = shift){
+    if(defined $myWord){
+      $sth->execute($myWord) or die $DBI::errstr;
+    }    
+  }
   $sth->execute() or die $DBI::errstr;
   $sth->finish();
   # $dbh->commit or die $DBI::errstr;
