@@ -31,6 +31,8 @@ You need to have Docker installed.
 		$docker run --network=book-network -it --name perl_container perl-app
 	```
 
+	**Note:** This will run the parsing of PoeTraor.htm and introduce data into the database.
+
 ## Books and Words
 
 This is a project developped using perl in 2009.
@@ -96,10 +98,4 @@ mysql> SELECT source FROM words GROUP BY source;`
 
 ### Read through a large file
 
-**Prerequisite:** You need to have perl installed on local.
-
-We read the complete book "Histoires Extraordinaires", extract each word, and print it on screen.
-
-To execute, run:
-
-`$perl src/app/parse.pl`
+Now performed within the perl container script.
