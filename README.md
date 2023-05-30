@@ -18,8 +18,9 @@ You need to have Docker installed.
 	```
 		$docker exec -it mysql_container bash
 		$mysql -uroot -pmysecretpassword
-		mysql>create database testdb;
-		mysql>
+		mysql>CREATE DATABASE testdb;
+		mysql>CREATE TABLE `words` (`word` varchar(50) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='';
+		mysql> exit
 		$exit
 	```
 
@@ -32,6 +33,7 @@ You need to have Docker installed.
 	```
 
 	**Note:** This will run the parsing of PoeTraor.htm and introduce data into the database.
+	**Additional Note:** This version of the parser is not optimised and will take some time.
 
 ## Books and Words
 
