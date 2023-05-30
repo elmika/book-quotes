@@ -20,7 +20,8 @@
 		$docker exec -it mysql_container bash
 		$mysql -uroot -pmysecretpassword
 		mysql>create database testdb;
-		mysql>exit
+		mysql>
+		$exit
 	```
 
 - Build & run perl image
@@ -39,36 +40,15 @@ It reads books in text format (As can be found for example in Project Gutemberg 
 
 ## Sample Database
 
-### Load sample database (obsolete)
+### Load sample database
 
 A sample database is available in the file testdb.sql
-
-To load this database using Docker:
-
-- Run a docker mysql container:
-
-
-	`$docker run -p 3306:3306 -d --name mysql -e MYSQL_ROOT_PASSWORD=password mysql/mysql-server`
 	
-- Copy the testdb.sql file into the container:
+- Copy the testdb.sql file into the mysql container & load the file:
 
+	`$docker cp ./data/testdb.sql mysql_container:/`
 
-	`$docker cp ./testdb.sql mysql:/`
-	
-- Enter the container to access the database and create the testdb database:
-
-
-	```
-		$docker exec -it mysql bash
-		$mysql -uroot -ppassword
-		mysql>create database testdb;
-		mysql>exit
-	```
-	
-- Load the file:
-
-
-	`$mysql -uroot -p testdb -ppassword < /testdb.sql`
+	`$mysql -uroot -p testdb -pmysecretpassword < /testdb.sql`
 	
 
 The data is now available.
@@ -76,8 +56,7 @@ The data is now available.
 
 ### Load other sample database
 
-Perform the same steps with the `testdb-original.sql` database export and the `testdb_original` database.
-
+Create `testdb_original` database in the mysql container and upload the `testdb-original.sql` data, as we did previously with `testdb` and `tesdb.sql`.
 
 ### Explore information stored
 
