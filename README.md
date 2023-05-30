@@ -1,20 +1,35 @@
 # Rescuing old code written in perl.
 
-## Simple tests
+## Simple tests on local
 
 - `hello.pl` Hello world!
 - `argv.pl` Test command line input
 
-## Containerized perl app
+## Containerized perl app and MySQL database
 
-Build perl image
+- Set up network
+	
+	`$docker network create book-network`
 
-	`$docker build -t perl-app .`
+- Build, run and initialize MySQL container
 
-Run perl script hello
+	`docker run --network=book-network --name mysql_container -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql:latest`
 
-	`$docker run perl-app`
 
+	```
+		$docker exec -it mysql_container bash
+		$mysql -uroot -pmysecretpassword
+		mysql>create database testdb;
+		mysql>exit
+	```
+
+- Build & run perl image
+
+	```
+		$docker build -t perl-app .
+
+		$docker run --network=book-network -it --name perl_container perl-app
+	```
 
 ## Books and Words
 
@@ -24,7 +39,7 @@ It reads books in text format (As can be found for example in Project Gutemberg 
 
 ## Sample Database
 
-### Load sample database
+### Load sample database (obsolete)
 
 A sample database is available in the file testdb.sql
 
