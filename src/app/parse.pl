@@ -1,22 +1,28 @@
-#!C:\apache2triad\perl\bin\perl.exe
 use strict;
 use DBI;
 
 package HTMLStrip;
 use base "HTML::Parser";
 
+BEGIN {
+my $x=0;
+
 sub text {
   my ($self, $text) = @_;
   my $word='';
-  while(/(\w+)/){
+  while(/((\w|[ÆÁÂÀÅÃÄÇÐÉÊÈËÍÎÌÏÑÓÔÒØÕÖÞÚÛÙÜÝáâæàåãäçéêèðëíîìïñóôòøõößþúûùüýÿ])+)/){
       # do something with $1
       $word = $1;
+      $word =~ s/[^\x00-\x7F]//g; # Hot fix: Remove characters not supported by our database.
       # print $word."\t";
       insert_db($word);
       # take it out of the string
       s/$word//;
   }
-}
+  print ($x."\t");
+} # sub
+} #  BEGIN
+
 
 sub insert_db {
   
@@ -40,8 +46,7 @@ sub insert_db {
   $sth->finish();
   # $dbh->commit or die $DBI::errstr;
   # disconnect from the db.
-  my $rc = $dbh->disconnect  or warn $dbh->errstr;
-  print ("a");
+  my $rc = $dbh->disconnect  or warn $dbh->errstr;  
 
 }
 
