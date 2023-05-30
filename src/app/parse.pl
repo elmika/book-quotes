@@ -19,7 +19,7 @@ sub text {
 my $p = new HTMLStrip;
 # parse line-by-line, rather than the whole file at once
 #  Read the file
-open(my $in,  "<",  "PoeTraor.htm")  or die "Can't open input.txt: $!";
+open(my $in,  "<",  "./data/PoeTraor.htm")  or die "Can't open input.txt: $!";
 # loop through the lines
 while (<$in>) {     # assigns each line in turn to $_
   $p->parse($_);

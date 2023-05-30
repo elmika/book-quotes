@@ -1,9 +1,8 @@
 # Rescuing old code written in perl.
 
-## Simple tests on local
+## Prerequisite
 
-- `hello.pl` Hello world!
-- `argv.pl` Test command line input
+You need to have Docker installed.
 
 ## Containerized perl app and MySQL database
 
@@ -95,22 +94,12 @@ mysql> SELECT source FROM words GROUP BY source;`
 
 *These are extracts of the code as I found them, restored in a format that runs, and enhanced with this very readme so that they can be used without further investigation. Refactors and other improvements will be performed once we close this history branch.*
 
-*Note: Because of the above, everything is dumped into the root folder... As is.*
-
-*Additional Note: As we start to run our code in containers, we will move it to the src/app folder.*
-
-### First test
-
- We read an extract of "Histoires Extraordinaires", the translation of E.A. Poe by Charles Beaudelaire, and display it on the screen.
-
-To execute, run:
-
-`$perl hola.pl`
-
 ### Read through a large file
+
+**Prerequisite:** You need to have perl installed on local.
 
 We read the complete book "Histoires Extraordinaires", extract each word, and print it on screen.
 
 To execute, run:
 
-`$perl parse.pl`
+`$perl src/app/parse.pl`
