@@ -41,13 +41,13 @@ It reads books in text format (As can be found for example in Project Gutemberg 
 
 ### Load sample database
 
-A sample database is available in the file testdb.sql
+A sample database is available in the file sample_books.sql
 	
 - Copy the testdb.sql file into the mysql container & load the file:
 
 	`$docker cp ./data/testdb.sql mysql_container:/`
 
-	`$mysql -uroot -p testdb -pmysecretpassword < /testdb.sql`
+	`$mysql -uroot -p testdb -pmysecretpassword < /sample_books.sql`
 	
 
 The data is now available.
@@ -55,13 +55,13 @@ The data is now available.
 
 ### Load other sample database
 
-Create `testdb_original` database in the mysql container and upload the `testdb-original.sql` data, as we did previously with `testdb` and `tesdb.sql`.
+Create `sun_tzu` database in the mysql container and upload the `sun_tzu.sql` data, as we did previously with `sample_books` and `sample_books.sql`.
 
 ### Explore information stored
 
 A few sql scripts have been provided. Feel free to run them in the command line to see sentences extracted from our book databases.
 
-- known sources in testdb: 
+- known sources in sample_books: 
 
 ```
 mysql> SELECT source FROM sentences GROUP BY source;
@@ -77,7 +77,7 @@ mysql> SELECT source FROM sentences GROUP BY source;
 +----------------+
 ```
 
-- known sources in testdb_original: 
+- known sources in sun_tzu: 
 
 
 ```
