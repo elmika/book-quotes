@@ -70,14 +70,24 @@ sub insert_db {
   my $rc = $dbh->disconnect  or warn $dbh->errstr;  
 
 }
+################################################
+#         MAIN
+###############################################
+# grab the html files in the ebooks directory
+my $some_dir="/usr/src/data";
+opendir(DIR, $some_dir) || die "can't opendir $some_dir: $!";
+my @htmlBooks = grep { /\.txt$/ && -f "$some_dir/$_" } readdir(DIR);
 
-my $p = new HTMLStrip;
-# parse line-by-line, rather than the whole file at once
-#  Read the file
-open(my $in,  "<",  "./data/PoeTraor.htm")  or die "Can't open input.txt: $!";
-# loop through the lines
-while (<$in>) {     # assigns each line in turn to $_
-  $p->parse($_);
-}
-# flush and parse remaining unparsed HTML
-$p->eof;
+while(my $myBook = shift @htmlBooks){
+  my $p = new HTMLStrip;
+  print "\n"."Importing the book: ".$myBook."\n";
+  # parse line-by-line, rather than the whole file at once
+  #  Read the file
+  open(my $in,  "<",  $some_dir."/".$myBook)  or die "Can't open $myBook: $!";
+  # loop through the lines
+  while (<$in>) {     # assigns each line in turn to $_
+    $p->parse($_);
+  }
+  # flush and parse remaining unparsed HTML
+  $p->eof;
+} # while
