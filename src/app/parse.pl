@@ -11,6 +11,13 @@ my @words=();
 sub text {
   my ($self, $text) = @_;
   my $word='';
+
+ # Take html tags out
+  while(/<.+?>/){
+      # take it out of the string - we need to do the matching again, as there are wild chars in there...
+      s/<.+?>//;
+  }
+  # Get the plain words - default behaviour is the matching source string is $_ Eh... Where does it come from again ??
   while(/((\w|[ÆÁÂÀÅÃÄÇÐÉÊÈËÍÎÌÏÑÓÔÒØÕÖÞÚÛÙÜÝáâæàåãäçéêèðëíîìïñóôòøõößþúûùüýÿ])+)/){
       # do something with $1
       $x++;
