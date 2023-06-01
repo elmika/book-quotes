@@ -15,7 +15,7 @@ sub text {
   my ($self, $text) = @_;
   my $word='';
 
-# Take html tags out
+  # Take html tags out
   while(/<.+?>/){
       # take it out of the string - we need to do the matching again, as there are wild chars in there...
       s/<.+?>//;
@@ -87,34 +87,53 @@ sub insert_db {
 }
 
 
+# Get a hash of all: bookName => bookFullFilename in $some_dir
 sub getBookList {
   my ($some_dir) = @_;
   
   # Find the txt files in the specified book directory  
   opendir(DIR, $some_dir) || die "can't opendir $some_dir: $!";
-  my @htmlBooks = grep { /\.txt$/ && -f "$some_dir/$_" } readdir(DIR);
+  my @bookFiles = grep { /\.txt$/ && -f "$some_dir/$_" } readdir(DIR);
 
-  return @htmlBooks;
+  my %bookInformation;
+
+  while(my $myBook = shift @bookFiles){    
+    my $bookName = $myBook;
+    # strip .txt
+    chop($bookName);chop($bookName);chop($bookName);chop($bookName);
+    
+    $bookInformation{$bookName} = $some_dir . "/" . "$myBook";
+  }
+
+  return %bookInformation;
+}
+
+# Parse and import a book 
+sub importBook {
+  my ($myBook, $bookFilename) = @_;
+  
+  print "\n"."Importing the book: ".$myBook."\n";
+  
+  # Init global variables for new book.
+  $x=0;
+  $source_file = $myBook;
+
+  # parse - line by line.
+  my $p = new HTMLStrip;
+  # $p->parse_file($bookFilename);  
+  open(my $in,  "<",  $bookFilename)  or die "Can't open $myBook: $!";
+  while (<$in>) {
+    $p->parse($_);
+  }
+  
+  $p->eof; # flush and parse remaining unparsed HTML
 }
 
 ################################################
 #         MAIN
 ###############################################
-my $book_directory="/usr/src/data";
-my @htmlBooks = getBookList($book_directory);
 
-while(my $myBook = shift @htmlBooks){
-  my $p = new HTMLStrip;
-  print "\n"."Importing the book: ".$myBook."\n";
-  $x=0;
-  $source_file = $myBook;
-  # parse line-by-line, rather than the whole file at once
-  #  Read the file
-  open(my $in,  "<",  $book_directory."/".$myBook)  or die "Can't open $myBook: $!";
-  # loop through the lines
-  while (<$in>) {     # assigns each line in turn to $_
-    $p->parse($_);
-  }
-  # flush and parse remaining unparsed HTML
-  $p->eof;
-} # while
+my %bookInfo = getBookList("/usr/src/data");
+for(keys %bookInfo) {
+  importBook($_, $bookInfo{$_});
+} # for
