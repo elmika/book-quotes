@@ -29,8 +29,7 @@ sub extractWords {
       $string =~ s/<.+?>//;
   }
 
-  # Get the plain words - we grab composite words (with - only) as single words.
-  while($string =~ /((\w|[-ÆÁÂÀÅÃÄÇÐÉÊÈËÍÎÌÏÑÓÔÒØÕÖÞÚÛÙÜÝáâæàåãäçéêèðëíîìïñóôòøõößþúûùüýÿ])+)/){
+  while ($string =~ /(\p{L}+)/g) {
       # do something with $1
       $x++;
       $word = $1;
