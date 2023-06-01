@@ -34,7 +34,7 @@ sub extractWords {
       # do something with $1
       $x++;
       $word = $1;
-      $word =~ s/[^\x00-\x7F]//g; # Hot fix: Remove characters not supported by our database.
+      # $word =~ s/[^\x00-\x7F]//g; # Hot fix: Remove characters not supported by our database.
       # print $word."\t";
       if($x%100==0){
         insert_db(@words);
@@ -55,8 +55,14 @@ sub connect_db {
   my $dsn = "DBI:mysql:database=testdb;host=mysql_container";
   my $username = "root";
   my $password = "mysecretpassword";
+  my $options = {
+     mysql_enable_utf8mb4 => 1,
+     RaiseError => 1,
+     PrintError => 0,
+     AutoCommit => 1,
+   };
 
-  $dbh = DBI->connect($dsn, $username, $password, { RaiseError => 1 }) 
+  $dbh = DBI->connect($dsn, $username, $password, $options) 
     or die $DBI::errstr;
 
   my $sth = $dbh->prepare("USE testdb");
@@ -126,7 +132,7 @@ sub importBook {
   # parse - line by line.
   my $p = new HTMLStrip;
   # $p->parse_file($bookFilename);  
-  open(my $in,  "<",  $bookFilename)  or die "Can't open $myBook: $!";
+  open(my $in,  "<:encoding(UTF-8)",  $bookFilename)  or die "Can't open $myBook: $!";
   while (<$in>) {
     $p->parse($_);
   }
