@@ -5,6 +5,8 @@ package HTMLStrip;
 use base "HTML::Parser";
 use vars qw( $source_file $x);
 
+my $dbh;
+
 BEGIN {
 my @words=();
 
@@ -38,21 +40,34 @@ sub text {
 } # sub
 } #  BEGIN
 
-sub insert_db {
-  
-  my $myWord;
-  
+# Init dbh global variable with database connection to testdb
+sub connect_db {
+
   my $dsn = "DBI:mysql:database=testdb;host=mysql_container";
   my $username = "root";
   my $password = "mysecretpassword";
 
-  my $dbh = DBI->connect($dsn, $username, $password, { RaiseError => 1 }) 
+  $dbh = DBI->connect($dsn, $username, $password, { RaiseError => 1 }) 
     or die $DBI::errstr;
 
   my $sth = $dbh->prepare("USE testdb");
-  $sth->execute() or die $DBI::errstr;      
+  $sth->execute() or die $DBI::errstr;
+}
+
+# Closes dbh database connection
+sub disconnect_db {
+
+  # disconnect from the db.
+  my $rc = $dbh->disconnect  or warn $dbh->errstr;
+}
+
+sub insert_db {
+  
+  my $myWord;
+  
+  connect_db();
         
-  $sth = $dbh->prepare("INSERT INTO words
+  my $sth = $dbh->prepare("INSERT INTO words
               (word, source, offset)
                values
               (?, ?, ?)");
@@ -66,7 +81,7 @@ sub insert_db {
   $sth->finish();
   # $dbh->commit or die $DBI::errstr;
   # disconnect from the db.
-  my $rc = $dbh->disconnect  or warn $dbh->errstr;
+  disconnect_db();
 
 }
 ################################################
