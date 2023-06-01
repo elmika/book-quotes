@@ -2,6 +2,7 @@ use strict;
 use DBI;
 
 package HTMLStrip;
+use Encode 'encode', 'decode';
 use base "HTML::Parser";
 use vars qw( $source_file $x);
 
@@ -33,7 +34,6 @@ sub extractWords {
       # do something with $1
       $x++;
       $word = $1;
-      # $word =~ s/[^\x00-\x7F]//g; # Hot fix: Remove characters not supported by our database.
       # print $word."\t";
       if($x%100==0){
         insert_db(@words);
@@ -129,11 +129,20 @@ sub importBook {
   $source_file = $myBook;
 
   # parse - line by line.
-  my $p = new HTMLStrip;
+  my $p = new HTMLStrip;  
   # $p->parse_file($bookFilename);  
-  open(my $in,  "<:encoding(UTF-8)",  $bookFilename)  or die "Can't open $myBook: $!";
+  open(my $in,  "<:encoding(ISO-8859-1)",  $bookFilename)  or die "Can't open $myBook: $!";
   while (<$in>) {
-    $p->parse($_);
+    
+    # Fix encoding
+    my $line = $_;
+    # Decode from ISO-8859-1 to Perl's internal format
+    my $decoded_line = decode('ISO-8859-1', $line);
+    # Encode from Perl's internal format to UTF-8
+    my $utf8_line = encode('UTF-8', $decoded_line);
+
+    # Parse
+    $p->parse($utf8_line);
   }
   
   $p->eof; # flush and parse remaining unparsed HTML
