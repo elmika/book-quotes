@@ -7,22 +7,30 @@ use vars qw( $source_file $x);
 
 my $dbh;
 
-BEGIN {
+BEGIN { # Needed to modify the text event of our parser... (Just a wild guess)
 my @words=();
 
 # This text event is triggered when our parser finds some text within the HTML.
 sub text {
   my ($self, $text) = @_;
+
+  # select * from words where offset > 2350 order by offset asc limit 25;
+  extractWords($_);
+
+} # sub
+
+sub extractWords {
+  my ($string) = @_;
   my $word='';
 
   # Take html tags out
-  while(/<.+?>/){
+  while($string =~ /<.+?>/){
       # take it out of the string - we need to do the matching again, as there are wild chars in there...
-      s/<.+?>//;
+      $string =~ s/<.+?>//;
   }
 
   # Get the plain words - we grab composite words (with - only) as single words.
-  while(/((\w|[-ÆÁÂÀÅÃÄÇÐÉÊÈËÍÎÌÏÑÓÔÒØÕÖÞÚÛÙÜÝáâæàåãäçéêèðëíîìïñóôòøõößþúûùüýÿ])+)/){
+  while($string =~ /((\w|[-ÆÁÂÀÅÃÄÇÐÉÊÈËÍÎÌÏÑÓÔÒØÕÖÞÚÛÙÜÝáâæàåãäçéêèðëíîìïñóôòøõößþúûùüýÿ])+)/){
       # do something with $1
       $x++;
       $word = $1;
@@ -36,9 +44,9 @@ sub text {
         push @words, $word;
       }
       # take it out of the string - note this works fine because $word contains NO special char...
-      s/$word//;
+      $string =~ s/$word//;
   }
-} # sub
+}
 } #  BEGIN
 
 # Init dbh global variable with database connection to testdb
