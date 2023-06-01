@@ -1,9 +1,49 @@
 # Rescuing old code written in perl.
 
-## Simple tests
+## Prerequisite
 
-- `hello.pl` Hello world!
-- `argv.pl` Test command line input
+You need to have Docker installed.
+
+## Containerized perl app and MySQL database
+
+- Set up network
+	
+	`$docker network create book-network`
+
+- Build, run and initialize MySQL container
+
+	`docker run --network=book-network --name mysql_container -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql:latest`
+
+	see ./data/testdb.sql for the sql to create the words table.
+
+	```
+		$docker exec -it mysql_container bash
+		$mysql -uroot -pmysecretpassword
+		mysql>CREATE DATABASE testdb;
+		mysql> DROP TABLE IF EXISTS `words`;
+		Query OK, 0 rows affected (0.27 sec)
+
+		mysql> CREATE TABLE `words` (
+		    ->   `word` varchar(50) NOT NULL,
+		    ->   `source` varchar(50) NOT NULL default '',
+		    ->   `offset` int(11) NOT NULL,
+		    ->   KEY `word` (`word`)
+		    -> ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Only words';
+		Query OK, 0 rows affected
+		mysql> exit
+		$exit
+	```
+
+- Build & run perl image
+
+	```
+		$docker build -t perl-app .
+
+		$docker run --network=book-network -it --name perl_container perl-app
+	```
+
+	**Note:** This will run the parsing of PoeTraor.htm and introduce data into the database.
+	**Additional Note:** This version of the parser is not optimised and will take some time.
 
 ## Books and Words
 
@@ -15,48 +55,27 @@ It reads books in text format (As can be found for example in Project Gutemberg 
 
 ### Load sample database
 
-A sample database is available in the file testdb.sql
-
-To load this database using Docker:
-
-- Run a docker mysql container:
-
-
-	`$docker run -p 3306:3306 -d --name mysql -e MYSQL_ROOT_PASSWORD=password mysql/mysql-server`
+A sample database is available in the file sample_books.sql
 	
-- Copy the testdb.sql file into the container:
+- Copy the testdb.sql file into the mysql container & load the file:
 
+	`$docker cp ./data/testdb.sql mysql_container:/`
 
-	`$docker cp ./testdb.sql mysql:/`
-	
-- Enter the container to access the database and create the testdb database:
-
-
-	```
-		$docker exec -it mysql bash
-		$mysql -uroot -ppassword
-		mysql>create database testdb;
-		mysql>exit
-	```
-	
-- Load the file:
-
-
-	`$mysql -uroot -p testdb -ppassword < /testdb.sql`
+	`$mysql -uroot -p testdb -pmysecretpassword < /sample_books.sql`
 	
 
 The data is now available.
 
+
 ### Load other sample database
 
-Perform the same steps with the `testdb-original.sql` database export and the `testdb_original` database.
-
+Create `sun_tzu` database in the mysql container and upload the `sun_tzu.sql` data, as we did previously with `sample_books` and `sample_books.sql`.
 
 ### Explore information stored
 
 A few sql scripts have been provided. Feel free to run them in the command line to see sentences extracted from our book databases.
 
-- known sources in testdb: 
+- known sources in sample_books: 
 
 ```
 mysql> SELECT source FROM sentences GROUP BY source;
@@ -72,7 +91,7 @@ mysql> SELECT source FROM sentences GROUP BY source;
 +----------------+
 ```
 
-- known sources in testdb_original: 
+- known sources in sun_tzu: 
 
 
 ```
@@ -87,4 +106,8 @@ mysql> SELECT source FROM words GROUP BY source;`
 
 ## Book Parser
 
-// Upcoming
+*These are extracts of the code as I found them, restored in a format that runs, and enhanced with this very readme so that they can be used without further investigation. Refactors and other improvements will be performed once we close this history branch.*
+
+### Read through a large file
+
+Now performed within the perl container script.

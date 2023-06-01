@@ -1,0 +1,498 @@
+Project Gutenberg Etext of Don Quijote, by Cervantes, in Spanish
+#2 in our series by Cervantes
+
+We will be presenting two versions of this, one in HTML and one
+in "Plain Upper ASCII Spanish."
+
+The HTML file will have "h" as the last character in the name...
+such as 2donq10h.htm and the plain file will be 2donq10.txt
+
+
+Also see
+Jul 1997 Don Quixote, by Miguel de Cervantes--[1donqxxx.xxx] 996
+
+
+Copyright laws are changing all over the world, be sure to check
+the copyright laws for your country before posting these files!!
+
+Please take a look at the important information in this header.
+We encourage you to keep this file on your own disk, keeping an
+electronic path open for the next readers.  Do not remove this.
+
+
+**Welcome To The World of Free Plain Vanilla Electronic Texts**
+
+**Etexts Readable By Both Humans and By Computers, Since 1971**
+
+*These Etexts Prepared By Hundreds of Volunteers and Donations*
+
+Information on contacting Project Gutenberg to get Etexts, and
+further information is included below.  We need your donations.
+
+
+Don Quijote
+
+by Miguel de Cervantes [Saavedra] [in Spanish]
+
+December, 1999  [Etext #2000]
+
+
+Project Gutenberg Etext of Don Quijote, by Cervantes, in Spanish
+******This file should be named 2donq10.txt or 2donq10.zip******
+
+Corrected EDITIONS of our etexts get a new NUMBER, 2donq11.txt
+VERSIONS based on separate sources get new LETTER, 2donq10a.txt
+
+
+Project Gutenberg Etexts are usually created from multiple editions,
+all of which are in the Public Domain in the United States, unless a
+copyright notice is included.  Therefore, we usually do NOT keep any
+of these books in compliance with any particular paper edition.
+
+
+We are now trying to release all our books one month in advance
+of the official release dates, leaving time for better editing.
+
+Please note:  neither this list nor its contents are final till
+midnight of the last day of the month of any such announcement.
+The official release date of all Project Gutenberg Etexts is at
+Midnight, Central Time, of the last day of the stated month.  A
+preliminary version may often be posted for suggestion, comment
+and editing by those who wish to do so.  To be sure you have an
+up to date first edition [xxxxx10x.xxx] please check file sizes
+in the first week of the next month.  Since our ftp program has
+a bug in it that scrambles the date [tried to fix and failed] a
+look at the file size will have to do, but we will try to see a
+new copy has at least one byte more or less.
+
+
+Information about Project Gutenberg (one page)
+
+We produce about two million dollars for each hour we work.  The
+time it takes us, a rather conservative estimate, is fifty hours
+to get any etext selected, entered, proofread, edited, copyright
+searched and analyzed, the copyright letters written, etc.  This
+projected audience is one hundred million readers.  If our value
+per text is nominally estimated at one dollar then we produce $2
+million dollars per hour this year as we release thirty-six text
+files per month, or 432 more Etexts in 1999 for a total of 2000+
+If these reach just 10% of the computerized population, then the
+total should reach over 200 billion Etexts given away this year.
+
+The Goal of Project Gutenberg is to Give Away One Trillion Etext
+Files by December 31, 2001.  [10,000 x 100,000,000 = 1 Trillion]
+This is ten thousand titles each to one hundred million readers,
+which is only ~5% of the present number of computer users.
+
+At our revised rates of production, we will reach only one-third
+of that goal by the end of 2001, or about 3,333 Etexts unless we
+manage to get some real funding; currently our funding is mostly
+from Michael Hart's salary at Carnegie-Mellon University, and an
+assortment of sporadic gifts; this salary is only good for a few
+more years, so we are looking for something to replace it, as we
+don't want Project Gutenberg to be so dependent on one person.
+
+We need your donations more than ever!
+
+
+All donations should be made to "Project Gutenberg/CMU": and are
+tax deductible to the extent allowable by law.  (CMU = Carnegie-
+Mellon University).
+
+For these and other matters, please mail to:
+
+Project Gutenberg
+P. O. Box  2782
+Champaign, IL 61825
+
+When all other email fails. . .try our Executive Director:
+Michael S. Hart <hart@pobox.com>
+hart@pobox.com forwards to hart@prairienet.org and archive.org
+if your mail bounces from archive.org, I will still see it, if
+it bounces from prairienet.org, better resend later on. . . .
+
+We would prefer to send you this information by email.
+
+******
+
+To access Project Gutenberg etexts, use any Web browser
+to view http://promo.net/pg.  This site lists Etexts by
+author and by title, and includes information about how
+to get involved with Project Gutenberg.  You could also
+download our past Newsletters, or subscribe here.  This
+is one of our major sites, please email hart@pobox.com,
+for a more complete list of our various sites.
+
+To go directly to the etext collections, use FTP or any
+Web browser to visit a Project Gutenberg mirror (mirror
+sites are available on 7 continents; mirrors are listed
+at http://promo.net/pg).
+
+Mac users, do NOT point and click, typing works better.
+
+Example FTP session:
+
+ftp sunsite.unc.edu
+login: anonymous
+password: your@login
+cd pub/docs/books/gutenberg
+cd etext90 through etext99
+dir [to see files]
+get or mget [to get files. . .set bin for zip files]
+GET GUTINDEX.??  [to get a year's listing of books, e.g., GUTINDEX.99]
+GET GUTINDEX.ALL [to get a listing of ALL books]
+
+***
+
+**Information prepared by the Project Gutenberg legal advisor**
+
+(Three Pages)
+
+
+***START**THE SMALL PRINT!**FOR PUBLIC DOMAIN ETEXTS**START***
+Why is this "Small Print!" statement here?  You know: lawyers.
+They tell us you might sue us if there is something wrong with
+your copy of this etext, even if you got it for free from
+someone other than us, and even if what's wrong is not our
+fault.  So, among other things, this "Small Print!" statement
+disclaims most of our liability to you.  It also tells you how
+you can distribute copies of this etext if you want to.
+
+*BEFORE!* YOU USE OR READ THIS ETEXT
+By using or reading any part of this PROJECT GUTENBERG-tm
+etext, you indicate that you understand, agree to and accept
+this "Small Print!" statement.  If you do not, you can receive
+a refund of the money (if any) you paid for this etext by
+sending a request within 30 days of receiving it to the person
+you got it from.  If you received this etext on a physical
+medium (such as a disk), you must return it with your request.
+
+ABOUT PROJECT GUTENBERG-TM ETEXTS
+This PROJECT GUTENBERG-tm etext, like most PROJECT GUTENBERG-
+tm etexts, is a "public domain" work distributed by Professor
+Michael S. Hart through the Project Gutenberg Association at
+Carnegie-Mellon University (the "Project").  Among other
+things, this means that no one owns a United States copyright
+on or for this work, so the Project (and you!) can copy and
+distribute it in the United States without permission and
+without paying copyright royalties.  Special rules, set forth
+below, apply if you wish to copy and distribute this etext
+under the Project's "PROJECT GUTENBERG" trademark.
+
+To create these etexts, the Project expends considerable
+efforts to identify, transcribe and proofread public domain
+works.  Despite these efforts, the Project's etexts and any
+medium they may be on may contain "Defects".  Among other
+things, Defects may take the form of incomplete, inaccurate or
+corrupt data, transcription errors, a copyright or other
+intellectual property infringement, a defective or damaged
+disk or other etext medium, a computer virus, or computer
+codes that damage or cannot be read by your equipment.
+
+LIMITED WARRANTY; DISCLAIMER OF DAMAGES
+But for the "Right of Replacement or Refund" described below,
+[1] the Project (and any other party you may receive this
+etext from as a PROJECT GUTENBERG-tm etext) disclaims all
+liability to you for damages, costs and expenses, including
+legal fees, and [2] YOU HAVE NO REMEDIES FOR NEGLIGENCE OR
+UNDER STRICT LIABILITY, OR FOR BREACH OF WARRANTY OR CONTRACT,
+INCLUDING BUT NOT LIMITED TO INDIRECT, CONSEQUENTIAL, PUNITIVE
+OR INCIDENTAL DAMAGES, EVEN IF YOU GIVE NOTICE OF THE
+POSSIBILITY OF SUCH DAMAGES.
+
+If you discover a Defect in this etext within 90 days of
+receiving it, you can receive a refund of the money (if any)
+you paid for it by sending an explanatory note within that
+time to the person you received it from.  If you received it
+on a physical medium, you must return it with your note, and
+such person may choose to alternatively give you a replacement
+copy.  If you received it electronically, such person may
+choose to alternatively give you a second opportunity to
+receive it electronically.
+
+THIS ETEXT IS OTHERWISE PROVIDED TO YOU "AS-IS".  NO OTHER
+WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, ARE MADE TO YOU AS
+TO THE ETEXT OR ANY MEDIUM IT MAY BE ON, INCLUDING BUT NOT
+LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+Some states do not allow disclaimers of implied warranties or
+the exclusion or limitation of consequential damages, so the
+above disclaimers and exclusions may not apply to you, and you
+may have other legal rights.
+
+INDEMNITY
+You will indemnify and hold the Project, its directors,
+officers, members and agents harmless from all liability, cost
+and expense, including legal fees, that arise directly or
+indirectly from any of the following that you do or cause:
+[1] distribution of this etext, [2] alteration, modification,
+or addition to the etext, or [3] any Defect.
+
+DISTRIBUTION UNDER "PROJECT GUTENBERG-tm"
+You may distribute copies of this etext electronically, or by
+disk, book or any other medium if you either delete this
+"Small Print!" and all other references to Project Gutenberg,
+or:
+
+[1]  Only give exact copies of it.  Among other things, this
+     requires that you do not remove, alter or modify the
+     etext or this "small print!" statement.  You may however,
+     if you wish, distribute this etext in machine readable
+     binary, compressed, mark-up, or proprietary form,
+     including any form resulting from conversion by word pro-
+     cessing or hypertext software, but only so long as
+     *EITHER*:
+
+     [*]  The etext, when displayed, is clearly readable, and
+          does *not* contain characters other than those
+          intended by the author of the work, although tilde
+          (~), asterisk (*) and underline (_) characters may
+          be used to convey punctuation intended by the
+          author, and additional characters may be used to
+          indicate hypertext links; OR
+
+     [*]  The etext may be readily converted by the reader at
+          no expense into plain ASCII, EBCDIC or equivalent
+          form by the program that displays the etext (as is
+          the case, for instance, with most word processors);
+          OR
+
+     [*]  You provide, or agree to also provide on request at
+          no additional cost, fee or expense, a copy of the
+          etext in its original plain ASCII form (or in EBCDIC
+          or other equivalent proprietary form).
+
+[2]  Honor the etext refund and replacement provisions of this
+     "Small Print!" statement.
+
+[3]  Pay a trademark license fee to the Project of 20% of the
+     net profits you derive calculated using the method you
+     already use to calculate your applicable taxes.  If you
+     don't derive profits, no royalty is due.  Royalties are
+     payable to "Project Gutenberg Association/Carnegie-Mellon
+     University" within the 60 days following each
+     date you prepare (or were legally required to prepare)
+     your annual (or equivalent periodic) tax return.
+
+WHAT IF YOU *WANT* TO SEND MONEY EVEN IF YOU DON'T HAVE TO?
+The Project gratefully accepts contributions in money, time,
+scanning machines, OCR software, public domain etexts, royalty
+free copyright licenses, and every other sort of contribution
+you can think of.  Money should be paid to "Project Gutenberg
+Association / Carnegie-Mellon University".
+
+*END*THE SMALL PRINT! FOR PUBLIC DOMAIN ETEXTS*Ver.04.29.93*END*
+
+
+
+
+
+El ingenioso hidalgo don Quijote de la Mancha
+
+
+TASA
+
+Yo, Juan Gallo de Andrada, escribano de Cámara del Rey nuestro señor, de
+los que residen en su Consejo, certifico y doy fe que, habiendo visto por
+los señores dél un libro intitulado El ingenioso hidalgo de la Mancha,
+compuesto por Miguel de Cervantes Saavedra, tasaron cada pliego del dicho
+libro a tres maravedís y medio; el cual tiene ochenta y tres pliegos, que
+al dicho precio monta el dicho libro docientos y noventa maravedís y medio,
+en que se ha de vender en papel; y dieron licencia para que a este precio
+se pueda vender, y mandaron que esta tasa se ponga al principio del dicho
+libro, y no se pueda vender sin ella. Y, para que dello conste, di la
+presente en Valladolid, a veinte días del mes de deciembre de mil y
+seiscientos y cuatro años.
+
+Juan Gallo de Andrada.
+
+TESTIMONIO DE LAS ERRATAS
+
+Este libro no tiene cosa digna que no corresponda a su original; en
+testimonio de lo haber correcto, di esta fee. En el Colegio de la Madre de
+Dios de los Teólogos de la , en primero de diciembre
+de 1604 años.
+
+El licenciado Francisco Murcia de la Llana.
+
+EL REY
+
+Por cuanto por parte de vos, Miguel de Cervantes, nos fue fecha relación
+que habíades compuesto un libro intitulado El ingenioso hidalgo de la
+Mancha, el cual os había costado mucho trabajo y era muy útil y provechoso,
+nos pedistes y suplicastes os mandásemos dar licencia y facultad para le
+poder imprimir, y previlegio por el tiempo que fuésemos servidos, o como la
+nuestra merced fuese; lo cual visto por los del nuestro Consejo, por cuanto
+en el dicho libro se hicieron las diligencias que la premática últimamente
+por nos fecha sobre la impresión de los libros dispone, fue acordado que
+debíamos mandar dar esta nuestra cédula para vos, en la dicha razón; y nos
+tuvímoslo por bien. Por la cual, por os hacer bien y merced, os damos
+licencia y facultad para que vos, o la persona que vuestro poder hubiere, y
+no otra alguna, podáis imprimir el dicho libro, intitulado El ingenioso
+hidalgo de la Mancha, que desuso se hace mención, en todos estos nuestros
+reinos de Castilla, por tiempo y espacio de diez años, que corran y se
+cuenten desde el dicho día de la data desta nuestra cédula; so pena que la
+persona o personas que, sin tener vuestro poder, lo imprimiere o vendiere,
+o hiciere imprimir o vender, por el mesmo caso pierda la impresión que
+hiciere, con los moldes y aparejos della; y más, incurra en pena de
+cincuenta mil maravedís cada vez que lo contrario hiciere. La cual dicha
+pena sea la tercia parte para la persona que lo acusare, y la otra tercia
+parte para nuestra Cámara, y la otra tercia parte para el juez que lo
+sentenciare. Con tanto que todas las veces que hubiéredes de hacer imprimir
+el dicho libro, durante el tiempo de los dichos diez años, le traigáis al
+nuestro Consejo, juntamente con el original que en él fue visto, que va
+rubricado cada plana y firmado al fin dél de Juan Gallo de Andrada, nuestro
+Escribano de Cámara, de los que en él residen, para saber si la dicha
+impresión está conforme el original; o traigáis fe en pública forma de cómo
+por corretor nombrado por nuestro mandado, se vio y corrigió la dicha
+impresión por el original, y se imprimió conforme a él, y quedan impresas
+las erratas por él apuntadas, para cada un libro de los que así fueren
+impresos, para que se tase el precio que por cada volume hubiéredes de
+haber. Y mandamos al impresor que así imprimiere el dicho libro, no imprima
+el principio ni el primer pliego dél, ni entregue más de un solo libro con
+el original al autor, o persona a cuya costa lo imprimiere, ni otro alguno,
+para efeto de la dicha correción y tasa, hasta que antes y primero el dicho
+libro esté corregido y tasado por los del nuestro Consejo; y, estando
+hecho, y no de otra manera, pueda imprimir el dicho principio y primer
+pliego, y sucesivamente ponga esta nuestra cédula y la aprobación, tasa y
+erratas, so pena de caer e incurrir en las penas contenidas en las leyes y
+premáticas destos nuestros reinos. Y mandamos a los del nuestro Consejo, y
+a otras cualesquier justicias dellos, guarden y cumplan esta nuestra cédula
+y lo en ella contenido. Fecha en Valladolid, a veinte y seis días del mes
+de setiembre de mil y seiscientos y cuatro años.
+
+YO, EL REY.
+
+Por mandado del Rey nuestro señor:
+
+Juan de Amezqueta.
+
+AL DUQUE DE BÉJAR,
+
+marqués de Gibraleón, conde de Benalcázar y Bañares, vizconde de La Puebla de
+Alcocer, señor de las villas de Capilla, Curiel y Burguillos
+
+En fe del buen acogimiento y honra que hace Vuestra Excelencia a toda
+suerte de libros, como príncipe tan inclinado a favorecer las buenas artes,
+mayormente las que por su nobleza no se abaten al servicio y granjerías del
+vulgo, he determinado de sacar a luz al Ingenioso hidalgo don Quijote de la
+Mancha, al abrigo del clarísimo nombre de Vuestra Excelencia, a quien, con
+el acatamiento que debo a tanta grandeza, suplico le reciba agradablemente
+en su protección, para que a su sombra, aunque desnudo de aquel precioso
+ornamento de elegancia y erudición de que suelen andar vestidas las obras
+que se componen en las casas de los hombres que saben, ose parecer
+seguramente en el juicio de algunos que, continiéndose en los límites de su
+ignorancia, suelen condenar con más rigor y menos justicia los trabajos
+ajenos; que, poniendo los ojos la prudencia de Vuestra Excelencia en mi
+buen deseo, fío que no desdeñará la cortedad de tan humilde servicio.
+
+Miguel de Cervantes Saavedra.
+
+
+
+PRÓLOGO
+
+
+Desocupado lector: sin juramento me podrás creer que quisiera que este
+libro, como hijo del entendimiento, fuera el más hermoso, el más gallardo y
+más discreto que pudiera imaginarse. Pero no he podido yo contravenir al
+orden de naturaleza; que en ella cada cosa engendra su semejante. Y así,
+¿qué podrá engendrar el estéril y mal cultivado ingenio mío, sino la
+historia de un hijo seco, avellanado, antojadizo y lleno de pensamientos
+varios y nunca imaginados de otro alguno, bien como quien se engendró en
+una cárcel, donde toda incomodidad tiene su asiento y donde todo triste
+ruido hace su habitación? El sosiego, el lugar apacible, la amenidad de los
+campos, la serenidad de los cielos, el murmurar de las fuentes, la quietud
+del espíritu son grande parte para que las musas más estériles se muestren
+fecundas y ofrezcan partos al mundo que le colmen de maravilla y de
+contento. Acontece tener un padre un hijo feo y sin gracia alguna, y el
+amor que le tiene le pone una venda en los ojos para que no vea sus faltas,
+antes las juzga por discreciones y lindezas y las cuenta a sus amigos por
+agudezas y donaires. Pero yo, que, aunque parezco padre, soy padrastro de
+Don Quijote, no quiero irme con la corriente del uso, ni suplicarte, casi
+con las lágrimas en los ojos, como otros hacen, lector carísimo, que
+perdones o disimules las faltas que en este mi hijo vieres; y ni eres su
+pariente ni su amigo, y tienes tu alma en tu cuerpo y tu libre albedrío
+como el más pintado, y estás en tu casa, donde eres señor della, como el
+rey de sus alcabalas, y sabes lo que comúnmente se dice: que debajo de mi
+manto, al rey mato. Todo lo cual te esenta y hace libre de todo respecto y
+obligación; y así, puedes decir de la historia todo aquello que te
+pareciere, sin temor que te calunien por el mal ni te premien por el bien
+que dijeres della.
+
+Sólo quisiera dártela monda y desnuda, sin el ornato de prólogo, ni de la
+inumerabilidad y catálogo de los acostumbrados sonetos, epigramas y elogios
+que al principio de los libros suelen ponerse. Porque te sé decir que,
+aunque me costó algún trabajo componerla, ninguno tuve por mayor que hacer
+esta prefación que vas leyendo. Muchas veces tomé la pluma para escribille,
+y muchas la dejé, por no saber lo que escribiría; y, estando una suspenso,
+con el papel delante, la pluma en la oreja, el codo en el bufete y la mano
+en la mejilla, pensando lo que diría, entró a deshora un amigo mío,
+gracioso y bien entendido, el cual, viéndome tan imaginativo, me preguntó
+la causa; y, no encubriéndosela yo, le dije que pensaba en el prólogo que
+había de hacer a la historia de don Quijote, y que me tenía de suerte que
+ni quería hacerle, ni menos sacar a luz las hazañas de tan noble caballero.
+
+-Porque, ¿cómo queréis vos que no me tenga confuso el qué dirá el antiguo
+legislador que llaman vulgo cuando vea que, al cabo de tantos años como ha
+que duermo en el silencio del olvido, salgo ahora, con todos mis años a
+cuestas, con una leyenda seca como un esparto, ajena de invención, menguada
+de estilo, pobre de concetos y falta de toda erudición y doctrina; sin
+acotaciones en las márgenes y sin anotaciones en el fin del libro, como veo
+que están otros libros, aunque sean fabulosos y profanos, tan llenos de
+sentencias de Aristóteles, de Platón y de toda la caterva de filósofos, que
+admiran a los leyentes y tienen a sus autores por hombres leídos, eruditos
+y elocuentes? ¡Pues qué, cuando citan la Divina Escritura! No dirán sino
+que son unos santos Tomases y otros doctores de la Iglesia; guardando en
+esto un decoro tan ingenioso, que en un renglón han pintado un enamorado
+destraído y en otro hacen un sermoncico cristiano, que es un contento y un
+regalo oílle o leelle. De todo esto ha de carecer mi libro, porque ni tengo
+qué acotar en el margen, ni qué anotar en el fin, ni menos sé qué autores
+sigo en él, para ponerlos al principio, como hacen todos, por las letras
+del A.B.C., comenzando en Aristóteles y acabando en Xenofonte y en Zoílo o
+Zeuxis, aunque fue maldiciente el uno y pintor el otro. También ha de
+carecer mi libro de sonetos al principio, a lo menos de sonetos cuyos
+autores sean duques, marqueses, condes, obispos, damas o poetas
+celebérrimos; aunque, si yo los pidiese a dos o tres oficiales amigos, yo
+sé que me los darían, y tales, que no les igualasen los de aquellos que
+tienen más nombre en nuestra España. En fin, señor y amigo mío -proseguí-,
+yo determino que el señor don Quijote se quede sepultado en sus archivos en
+la Mancha, hasta que el cielo depare quien le adorne de tantas cosas como
+le faltan; porque yo me hallo incapaz de remediarlas, por mi insuficiencia
+y pocas letras, y porque naturalmente soy poltrón y perezoso de andarme
+buscando autores que digan lo que yo me sé decir sin ellos. De aquí nace la
+suspensión y elevamiento, amigo, en que me hallastes; bastante causa para
+ponerme en ella la que de mí habéis oído.
+
+...
+
+Para mí sola nació don Quijote, y yo para él; él supo obrar y yo escribir;
+solos los dos somos para en uno, a despecho y pesar del escritor fingido y
+tordesillesco que se atrevió, o se ha de atrever, a escribir con pluma de
+avestruz grosera y mal deliñada las hazañas de mi valeroso caballero,
+porque no es carga de sus hombros ni asunto de su resfriado ingenio; a
+quien advertirás, si acaso llegas a conocerle, que deje reposar en la
+sepultura los cansados y ya podridos huesos de don Quijote, y no le quiera
+llevar, contra todos los fueros de la muerte, a Castilla la Vieja,
+haciéndole salir de la fuesa donde real y verdaderamente yace tendido de
+largo a largo, imposibilitado de hacer tercera jornada y salida nueva; que,
+para hacer burla de tantas como hicieron tantos andantes caballeros, bastan
+las dos que él hizo, tan a gusto y beneplácito de las gentes a cuya noticia
+llegaron, así en éstos como en los estraños reinos''. Y con esto cumplirás
+con tu cristiana profesión, aconsejando bien a quien mal te quiere, y yo
+quedaré satisfecho y ufano de haber sido el primero que gozó el fruto de
+sus escritos enteramente, como deseaba, pues no ha sido otro mi deseo que
+poner en aborrecimiento de los hombres las fingidas y disparatadas
+historias de los libros de caballerías, que, por las de mi verdadero don
+Quijote, van ya tropezando, y han de caer del todo, sin duda alguna. Vale.
+
+Fin
+
+
+
+
+
+End of Project Gutenberg Etext of Don Quixote, by Cervantes, in Spanish
+
+
