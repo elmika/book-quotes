@@ -19,6 +19,8 @@ sub text {
       # take it out of the string - we need to do the matching again, as there are wild chars in there...
       s/<.+?>//;
   }
+  
+  connect_db();
   # Get the plain words - we grab composite words (with - only) as single words.
   while(/((\w|[-ÆÁÂÀÅÃÄÇÐÉÊÈËÍÎÌÏÑÓÔÒØÕÖÞÚÛÙÜÝáâæàåãäçéêèðëíîìïñóôòøõößþúûùüýÿ])+)/){
       # do something with $1
@@ -36,6 +38,7 @@ sub text {
       # take it out of the string - note this works fine because $word contains NO special char...
       s/$word//;
   }
+  disconnect_db();
   # print $_."\n"; # want to see the garbage ?
 } # sub
 } #  BEGIN
@@ -61,11 +64,10 @@ sub disconnect_db {
   my $rc = $dbh->disconnect  or warn $dbh->errstr;
 }
 
+# Prerequisite: The db should be connected...
 sub insert_db {
   
   my $myWord;
-  
-  connect_db();
         
   my $sth = $dbh->prepare("INSERT INTO words
               (word, source, offset)
@@ -79,9 +81,7 @@ sub insert_db {
     }
   }
   $sth->finish();
-  # $dbh->commit or die $DBI::errstr;
-  # disconnect from the db.
-  disconnect_db();
+  # $dbh->commit or die $DBI::errstr; 
 
 }
 ################################################
