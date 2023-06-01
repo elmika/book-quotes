@@ -10,6 +10,7 @@ my $dbh;
 BEGIN {
 my @words=();
 
+# This text event is triggered when our parser finds some text within the HTML.
 sub text {
   my ($self, $text) = @_;
   my $word='';
@@ -84,13 +85,23 @@ sub insert_db {
   # $dbh->commit or die $DBI::errstr; 
 
 }
+
+
+sub getBookList {
+  my ($some_dir) = @_;
+  
+  # Find the txt files in the specified book directory  
+  opendir(DIR, $some_dir) || die "can't opendir $some_dir: $!";
+  my @htmlBooks = grep { /\.txt$/ && -f "$some_dir/$_" } readdir(DIR);
+
+  return @htmlBooks;
+}
+
 ################################################
 #         MAIN
 ###############################################
-# grab the html files in the ebooks directory
-my $some_dir="/usr/src/data";
-opendir(DIR, $some_dir) || die "can't opendir $some_dir: $!";
-my @htmlBooks = grep { /\.txt$/ && -f "$some_dir/$_" } readdir(DIR);
+my $book_directory="/usr/src/data";
+my @htmlBooks = getBookList($book_directory);
 
 while(my $myBook = shift @htmlBooks){
   my $p = new HTMLStrip;
@@ -99,7 +110,7 @@ while(my $myBook = shift @htmlBooks){
   $source_file = $myBook;
   # parse line-by-line, rather than the whole file at once
   #  Read the file
-  open(my $in,  "<",  $some_dir."/".$myBook)  or die "Can't open $myBook: $!";
+  open(my $in,  "<",  $book_directory."/".$myBook)  or die "Can't open $myBook: $!";
   # loop through the lines
   while (<$in>) {     # assigns each line in turn to $_
     $p->parse($_);
