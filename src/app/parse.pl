@@ -20,8 +20,7 @@ sub text {
       # take it out of the string - we need to do the matching again, as there are wild chars in there...
       s/<.+?>//;
   }
-  
-  connect_db();
+
   # Get the plain words - we grab composite words (with - only) as single words.
   while(/((\w|[-ÆÁÂÀÅÃÄÇÐÉÊÈËÍÎÌÏÑÓÔÒØÕÖÞÚÛÙÜÝáâæàåãäçéêèðëíîìïñóôòøõößþúûùüýÿ])+)/){
       # do something with $1
@@ -39,8 +38,6 @@ sub text {
       # take it out of the string - note this works fine because $word contains NO special char...
       s/$word//;
   }
-  disconnect_db();
-  # print $_."\n"; # want to see the garbage ?
 } # sub
 } #  BEGIN
 
@@ -134,6 +131,8 @@ sub importBook {
 ###############################################
 
 my %bookInfo = getBookList("/usr/src/data");
+connect_db();
 for(keys %bookInfo) {
   importBook($_, $bookInfo{$_});
 } # for
+disconnect_db();
