@@ -30,22 +30,27 @@ sub extractWords {
       $string =~ s/<.+?>//;
   }
 
-  while ($string =~ /(\p{L}+)/g) {
-      # do something with $1
-      $x++;
+  while ($string =~ /(\p{L}+)/g) {      
       $word = $1;
-      # print $word."\t";
-      if($x%100==0){
-        insert_db(@words);
-        @words=();
-        print ("x");
-      }else{
-        push @words, $word;
-      }
-      # take it out of the string - note this works fine because $word contains NO special char...
+      insertWord($word);      
+      # take it out of the string
       $string =~ s/$word//;
   }
 }
+
+  sub insertWord() {
+    my ($word) = @_;
+    
+    $x++;
+
+    if($x%100==0){
+      insert_db(@words);
+      @words=();
+      print ("x");
+    } else {
+       push @words, $word;
+    }
+  }
 } #  BEGIN
 
 # Init dbh global variable with database connection to testdb
