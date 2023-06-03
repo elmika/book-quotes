@@ -12,23 +12,21 @@ You need to have Docker installed.
 
 - Build, run and initialize MySQL container
 
-	`docker run --network=book-network --name mysql_container -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql:latest`
+	`docker run --network=book-network --name mysql_container -e MYSQL_ROOT_PASSWORD=mysecretpassword -v $(pwd)/my.cnf:/etc/mysql/conf.d/my.cnf -d mysql:latest`
 
 	see ./data/testdb.sql for the sql to create the words table.
 
 	```
 		$docker exec -it mysql_container bash
 		$mysql -uroot -pmysecretpassword
-		mysql>CREATE DATABASE testdb;
-		mysql> DROP TABLE IF EXISTS `words`;
-		Query OK, 0 rows affected (0.27 sec)
-
+		mysql> CREATE DATABASE testdb;
+		mysql> USE testdb;
 		mysql> CREATE TABLE `words` (
 		    ->   `word` varchar(50) NOT NULL,
 		    ->   `source` varchar(50) NOT NULL default '',
 		    ->   `offset` int(11) NOT NULL,
 		    ->   KEY `word` (`word`)
-		    -> ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Only words';
+		    -> ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COMMENT='Only words';
 		Query OK, 0 rows affected
 		mysql> exit
 		$exit
