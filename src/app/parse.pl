@@ -35,7 +35,7 @@ sub extractWords {
       insertWord($word);      
       # take it out of the string
       $string =~ s/$word//;
-  }
+  }  
 }
 
   sub insertWord() {
@@ -44,12 +44,16 @@ sub extractWords {
     $x++;
 
     if($x%100==0){
-      insert_db(@words);
-      @words=();
-      print ("x");
+      flushWords();
     } else {
        push @words, $word;
     }
+  }
+
+  sub flushWords() {
+    insert_db(@words);
+    @words=();
+    print ("x");
   }
 } #  BEGIN
 
@@ -150,6 +154,7 @@ sub importBook {
     $p->parse($utf8_line);
   }
   
+  flushWords(); # persist remaining words
   $p->eof; # flush and parse remaining unparsed HTML
 }
 
