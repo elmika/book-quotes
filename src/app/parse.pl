@@ -162,7 +162,8 @@ sub importBook {
 #         MAIN
 ###############################################
 
-my %bookInfo = getBookList("/usr/src/data");
+#my %bookInfo = getBookList("/usr/src/data");
+my %bookInfo = getBookList("/usr/src/data/test/multiple-files");
 connect_db();
 for(keys %bookInfo) {
   importBook($_, $bookInfo{$_});
