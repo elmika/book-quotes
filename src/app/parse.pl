@@ -30,7 +30,7 @@ sub extractWords {
       $string =~ s/<.+?>//;
   }
 
-  while ($string =~ /(\p{L}+)/g) {      
+  while ($string =~ /((\p{L}|-)+)/g) {      
       $word = $1;
       insertWord($word);      
       # take it out of the string
@@ -42,11 +42,10 @@ sub extractWords {
     my ($word) = @_;
     
     $x++;
+    push @words, $word;
 
     if($x%100==0){
       flushWords();
-    } else {
-       push @words, $word;
     }
   }
 
@@ -168,7 +167,7 @@ sub importBook {
 ###############################################
 
 #my %bookInfo = getBookList("/usr/src/data");
-my %bookInfo = getBookList("/usr/src/data/test/multiple-files");
+my %bookInfo = getBookList("/usr/src/data/test/one-hundred-and-few");
 connect_db();
 for(keys %bookInfo) {
   importBook($_, $bookInfo{$_});
