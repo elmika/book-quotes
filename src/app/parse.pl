@@ -15,7 +15,6 @@ my @words=();
 sub text {
   my ($self, $text) = @_;
 
-  # select * from words where offset > 2350 order by offset asc limit 25;
   extractWords($_);
 
 } # sub
@@ -166,8 +165,7 @@ sub importBook {
 #         MAIN
 ###############################################
 
-#my %bookInfo = getBookList("/usr/src/data");
-my %bookInfo = getBookList("/usr/src/data/test/one-hundred-and-few");
+my %bookInfo = getBookList("/usr/src/data");
 connect_db();
 for(keys %bookInfo) {
   importBook($_, $bookInfo{$_});
