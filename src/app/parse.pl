@@ -87,17 +87,21 @@ sub disconnect_db {
 # Prerequisite: The db should be connected...
 sub insert_db {
   
-  my $myWord;
-        
+  my @wordList = @_;
+  my $y=0;
+  my $length = scalar @wordList;
+
   my $sth = $dbh->prepare("INSERT INTO words
               (word, source, offset)
                values
               (?, ?, ?)");
-  my $y=0;
-  while ($myWord = shift){
+  
+  
+  while (my $myWord = shift @wordList){
     if(defined $myWord){ # Another hotly fixed safety net
       $y++;
-      $sth->execute($myWord, $source_file, $x+$y-100) or die $DBI::errstr;
+      my $offset = $x+$y-$length;
+      $sth->execute($myWord, $source_file, $offset) or die $DBI::errstr;
     }
   }
   $sth->finish();
@@ -155,6 +159,7 @@ sub importBook {
   }
   
   flushWords(); # persist remaining words
+  $x=0; # reset offset for next book
   $p->eof; # flush and parse remaining unparsed HTML
 }
 
