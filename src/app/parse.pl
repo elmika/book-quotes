@@ -15,7 +15,6 @@ my @words=();
 sub text {
   my ($self, $text) = @_;
 
-  # select * from words where offset > 2350 order by offset asc limit 25;
   extractWords($_);
 
 } # sub
@@ -30,22 +29,30 @@ sub extractWords {
       $string =~ s/<.+?>//;
   }
 
-  while ($string =~ /(\p{L}+)/g) {
-      # do something with $1
-      $x++;
+  while ($string =~ /((\p{L}|-)+)/g) {      
       $word = $1;
-      # print $word."\t";
-      if($x%100==0){
-        insert_db(@words);
-        @words=();
-        print ("x");
-      }else{
-        push @words, $word;
-      }
-      # take it out of the string - note this works fine because $word contains NO special char...
+      insertWord($word);      
+      # take it out of the string
       $string =~ s/$word//;
-  }
+  }  
 }
+
+  sub insertWord() {
+    my ($word) = @_;
+    
+    $x++;
+    push @words, $word;
+
+    if($x%100==0){
+      flushWords();
+    }
+  }
+
+  sub flushWords() {
+    insert_db(@words);
+    @words=();
+    print ("x");
+  }
 } #  BEGIN
 
 # Init dbh global variable with database connection to testdb
@@ -78,17 +85,21 @@ sub disconnect_db {
 # Prerequisite: The db should be connected...
 sub insert_db {
   
-  my $myWord;
-        
+  my @wordList = @_;
+  my $y=0;
+  my $length = scalar @wordList;
+
   my $sth = $dbh->prepare("INSERT INTO words
               (word, source, offset)
                values
               (?, ?, ?)");
-  my $y=0;
-  while ($myWord = shift){
+  
+  
+  while (my $myWord = shift @wordList){
     if(defined $myWord){ # Another hotly fixed safety net
       $y++;
-      $sth->execute($myWord, $source_file, $x+$y-100) or die $DBI::errstr;
+      my $offset = $x+$y-$length;
+      $sth->execute($myWord, $source_file, $offset) or die $DBI::errstr;
     }
   }
   $sth->finish();
@@ -145,6 +156,8 @@ sub importBook {
     $p->parse($utf8_line);
   }
   
+  flushWords(); # persist remaining words
+  $x=0; # reset offset for next book
   $p->eof; # flush and parse remaining unparsed HTML
 }
 

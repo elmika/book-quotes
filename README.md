@@ -4,7 +4,12 @@
 
 You need to have Docker installed.
 
-## Containerized perl app and MySQL database
+## Setup
+
+Containerized perl app and MySQL database:
+
+![App Architecture](./doc/book-reader-architecture.png)
+
 
 - Set up network
 	
@@ -49,7 +54,7 @@ This is a project developped using perl in 2009.
 
 It reads books in text format (As can be found for example in Project Gutemberg - https://www.gutenberg.org/), parses sentences and stores them in a mysql database. The format used in the relational databases is designed to query for sentences containing specific words. It is also handy to examine word frequency in different books.
 
-## Sample Database
+## Sample Databases
 
 ### Load sample database
 
