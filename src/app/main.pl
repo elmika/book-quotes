@@ -15,14 +15,22 @@ sub getBookList {
   my %bookInformation;
 
   while(my $myBook = shift @bookFiles){    
-    my $bookName = $myBook;
-    # strip .txt
-    chop($bookName);chop($bookName);chop($bookName);chop($bookName);
+    my $bookName = removeExtension($myBook);
     
     $bookInformation{$bookName} = $some_dir . "/" . "$myBook";
   }
 
   return %bookInformation;
+}
+
+# We assume extension is 3 letters and a .
+sub removeExtension {
+  my ($bookName) = @_;
+  chop($bookName);
+  chop($bookName);
+  chop($bookName);
+  chop($bookName);
+  return $bookName;
 }
 
 ################################################
