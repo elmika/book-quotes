@@ -1,7 +1,7 @@
 use strict;
 use DBI;
 
-package Database;
+package BookDatabase;
 use Encode 'encode', 'decode';
 use vars qw( $source_file $x);
 

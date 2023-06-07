@@ -5,7 +5,7 @@ use Encode 'encode', 'decode';
 use base "HTML::Parser";
 #require '/usr/src/app/database.pl';
 use lib '/usr/src/app';
-use Database;
+use BookDatabase;
 
 BEGIN { # Needed to modify the text event of our parser... (Just a wild guess)  
   sub text { # This text event is triggered when our parser finds some text within the HTML.
@@ -25,7 +25,7 @@ sub extractWords {
 
   while ($string =~ /((\p{L}|-)+)/g) {      
       my $word = $1;
-      Database::insertWord($word);      
+      BookDatabase::insertWord($word);
       # take it out of the string
       $string =~ s/$word//;
   }  
@@ -67,8 +67,8 @@ sub importBook {
   my ($myBook, $bookFilename) = @_;
   
   # New book.  
-  Database::connect_db();
-  Database::setSourceBook($myBook);
+  BookDatabase::connect_db();
+  BookDatabase::setSourceBook($myBook);
 
   # parse - line by line.
   my $p = new HTMLStrip;  
@@ -80,7 +80,7 @@ sub importBook {
     $p->parse($line);
   }
   
-  Database::disconnect_db();  
+  BookDatabase::disconnect_db();  
   $p->eof; # flush and parse remaining unparsed HTML
 }
 
