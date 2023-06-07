@@ -51,6 +51,15 @@ sub getBookList {
   return %bookInformation;
 }
 
+# Fix encoding: ISO-8859-1 => Perl's internal format => UTF-8
+sub ISO_to_UTF {
+    my ($line) = @_;
+    my $decoded_line = decode('ISO-8859-1', $line);
+    my $utf8_line = encode('UTF-8', $decoded_line);
+
+    return $utf8_line;
+}
+
 # Parse and import a book 
 sub importBook {
   my ($myBook, $bookFilename) = @_;
@@ -61,18 +70,11 @@ sub importBook {
   # parse - line by line.
   my $p = new HTMLStrip;  
   # $p->parse_file($bookFilename);  
-  open(my $in,  "<:encoding(ISO-8859-1)",  $bookFilename)  or die "Can't open $myBook: $!";
+  open(my $in,  "<:encoding(ISO-8859-1)",  $bookFilename)  
+    or die "Can't open $myBook: $!";
   while (<$in>) {
-    
-    # Fix encoding
-    my $line = $_;
-    # Decode from ISO-8859-1 to Perl's internal format
-    my $decoded_line = decode('ISO-8859-1', $line);
-    # Encode from Perl's internal format to UTF-8
-    my $utf8_line = encode('UTF-8', $decoded_line);
-
-    # Parse
-    $p->parse($utf8_line);
+    my $line = ISO_to_UTF($_);
+    $p->parse($line);
   }
   
   flushWords(); # persist remaining words  
@@ -83,7 +85,7 @@ sub importBook {
 #         MAIN
 ###############################################
 
-my %bookInfo = getBookList("/usr/src/data");
+my %bookInfo = getBookList("/usr/src/data/test/multiple-files");
 connect_db();
 for(keys %bookInfo) {
   importBook($_, $bookInfo{$_});
