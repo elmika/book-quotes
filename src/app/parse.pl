@@ -1,6 +1,6 @@
 use strict;
 
-package HTMLStrip;
+package BookParser;
 use Encode 'encode', 'decode';
 use base "HTML::Parser";
 #require '/usr/src/app/database.pl';
@@ -71,7 +71,7 @@ sub importBook {
   BookDatabase::setSourceBook($myBook);
 
   # parse - line by line.
-  my $p = new HTMLStrip;  
+  my $p = new BookParser;  
   # $p->parse_file($bookFilename);  
   open(my $in,  "<:encoding(ISO-8859-1)",  $bookFilename)  
     or die "Can't open $myBook: $!";
