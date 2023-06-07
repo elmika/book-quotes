@@ -7,4 +7,4 @@ RUN cpan HTML::Parser
 COPY ./src /usr/src
 WORKDIR /usr/src
 
-CMD [ "perl", "app/parse.pl" ]
+CMD [ "perl", "app/main.pl" ]
