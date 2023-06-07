@@ -5,22 +5,15 @@ use Encode 'encode', 'decode';
 use base "HTML::Parser";
 require '/usr/src/app/database.pl';
 
-my $dbh;
-
-BEGIN { # Needed to modify the text event of our parser... (Just a wild guess)
-my @words=();
-
-# This text event is triggered when our parser finds some text within the HTML.
-sub text {
-  my ($self, $text) = @_;
-
-  extractWords($_);
-
-} # sub
+BEGIN { # Needed to modify the text event of our parser... (Just a wild guess)  
+  sub text { # This text event is triggered when our parser finds some text within the HTML.
+    # my ($self, $text) = @_;
+    extractWords($_);
+  } # sub
+} #  BEGIN
 
 sub extractWords {
   my ($string) = @_;
-  my $word='';
 
   # Take html tags out
   while($string =~ /<.+?>/){
@@ -29,13 +22,12 @@ sub extractWords {
   }
 
   while ($string =~ /((\p{L}|-)+)/g) {      
-      $word = $1;
+      my $word = $1;
       insertWord($word);      
       # take it out of the string
       $string =~ s/$word//;
   }  
 }
-} #  BEGIN
 
 
 # Get a hash of all: bookName => bookFullFilename in $some_dir
