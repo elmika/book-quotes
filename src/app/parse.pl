@@ -3,7 +3,9 @@ use strict;
 package HTMLStrip;
 use Encode 'encode', 'decode';
 use base "HTML::Parser";
-require '/usr/src/app/database.pl';
+#require '/usr/src/app/database.pl';
+use lib '/usr/src/app';
+use Database;
 
 BEGIN { # Needed to modify the text event of our parser... (Just a wild guess)  
   sub text { # This text event is triggered when our parser finds some text within the HTML.
@@ -23,7 +25,7 @@ sub extractWords {
 
   while ($string =~ /((\p{L}|-)+)/g) {      
       my $word = $1;
-      insertWord($word);      
+      Database::insertWord($word);      
       # take it out of the string
       $string =~ s/$word//;
   }  
@@ -65,7 +67,7 @@ sub importBook {
   my ($myBook, $bookFilename) = @_;
   
   # New book.  
-  setSourceBook($myBook);
+  Database::setSourceBook($myBook);
 
   # parse - line by line.
   my $p = new HTMLStrip;  
@@ -77,7 +79,7 @@ sub importBook {
     $p->parse($line);
   }
   
-  flushWords(); # persist remaining words  
+  Database::flushWords(); # persist remaining words  
   $p->eof; # flush and parse remaining unparsed HTML
 }
 
@@ -86,8 +88,8 @@ sub importBook {
 ###############################################
 
 my %bookInfo = getBookList("/usr/src/data/test/multiple-files");
-connect_db();
+Database::connect_db();
 for(keys %bookInfo) {
   importBook($_, $bookInfo{$_});
 } # for
-disconnect_db();
+Database::disconnect_db();

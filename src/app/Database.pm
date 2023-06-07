@@ -1,13 +1,14 @@
 use strict;
 use DBI;
 
+package Database;
 use Encode 'encode', 'decode';
 use vars qw( $source_file $x);
 
 my @words=();
 my $dbh;
 
-sub insertWord() {
+sub insertWord {
     my ($word) = @_;
     
     $x++;
@@ -26,7 +27,7 @@ sub setSourceBook {
 	$source_file = $myBook;
 }
 
-sub flushWords() {
+sub flushWords {
     insert_db(@words);
     @words=();
     print ("x");
