@@ -2,7 +2,6 @@ use strict;
 
 use lib '/usr/src/app';
 use BookParser;
-# require '/usr/src/app/parse.pl';
 
 # Get a hash of all: bookName => bookFullFilename in $some_dir
 sub getBookList {

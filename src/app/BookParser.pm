@@ -3,7 +3,6 @@ use strict;
 package BookParser;
 use Encode 'encode', 'decode';
 use base "HTML::Parser";
-#require '/usr/src/app/database.pl';
 use lib '/usr/src/app';
 use BookDatabase;
 
@@ -44,7 +43,7 @@ sub ISO_to_UTF {
 sub importBook {
   my ($myBook, $bookFilename) = @_;
   
-  # New book.  
+  # New book.  We could put these 2 into one NewBook function.
   BookDatabase::connect_db();
   BookDatabase::setSourceBook($myBook);
 
