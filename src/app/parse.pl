@@ -67,6 +67,7 @@ sub importBook {
   my ($myBook, $bookFilename) = @_;
   
   # New book.  
+  Database::connect_db();
   Database::setSourceBook($myBook);
 
   # parse - line by line.
@@ -79,7 +80,7 @@ sub importBook {
     $p->parse($line);
   }
   
-  Database::flushWords(); # persist remaining words  
+  Database::disconnect_db();  
   $p->eof; # flush and parse remaining unparsed HTML
 }
 
@@ -88,8 +89,6 @@ sub importBook {
 ###############################################
 
 my %bookInfo = getBookList("/usr/src/data/test/multiple-files");
-Database::connect_db();
 for(keys %bookInfo) {
   importBook($_, $bookInfo{$_});
 } # for
-Database::disconnect_db();

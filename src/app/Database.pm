@@ -55,9 +55,9 @@ sub connect_db {
 
 # Closes dbh database connection
 sub disconnect_db {
-
-  # disconnect from the db.
-  my $rc = $dbh->disconnect  or warn $dbh->errstr;
+  flushWords();  # Persist buffer
+  my $rc = $dbh->disconnect  
+    or warn $dbh->errstr;
 }
 
 # Prerequisite: The db should be connected...
