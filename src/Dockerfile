@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y build-essential libmariadb-dev-compat l
 RUN cpan DBD::mysql
 RUN cpan HTML::Parser
 
-COPY ./src /usr/src
+COPY . /usr/src
 WORKDIR /usr/src
 
 CMD [ "perl", "app/main.pl" ]

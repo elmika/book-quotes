@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db:
+    build: ./database
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+    volumes:
+      - ./database/my.cnf:/etc/mysql/conf.d/my.cnf
+    networks:
+      - book-network
+  app:
+    build: ./src
+    container_name: perl_container
+    depends_on:
+      - db
+    networks:
+      - book-network
+
+networks:
+  book-network:
+    driver: bridge

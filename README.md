@@ -11,13 +11,9 @@ Containerized perl app and MySQL database:
 ![App Architecture](./doc/book-reader-architecture.png)
 
 
-- Set up network
-	
-	`$docker network create book-network`
+- Launch orchestrator: `docker-compose up`
 
-- Build, run and initialize MySQL container
-
-	`docker run --network=book-network --name mysql_container -e MYSQL_ROOT_PASSWORD=mysecretpassword -v $(pwd)/my.cnf:/etc/mysql/conf.d/my.cnf -d mysql:latest`
+- Initialize MySQL container
 
 	see ./data/testdb.sql for the sql to create the words table.
 
@@ -37,16 +33,7 @@ Containerized perl app and MySQL database:
 		$exit
 	```
 
-- Build & run perl image
-
-	```
-		$docker build -t perl-app .
-
-		$docker run --network=book-network -it --name perl_container perl-app
-	```
-
-	**Note:** This will run the parsing of PoeTraor.htm and introduce data into the database.
-	**Additional Note:** This version of the parser is not optimised and will take some time.
+- Rerun perl container: `$docker-compose up app`
 
 ## Books and Words
 
