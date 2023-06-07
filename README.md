@@ -13,27 +13,6 @@ Containerized perl app and MySQL database:
 
 - Launch orchestrator: `docker-compose up`
 
-- Initialize MySQL container
-
-	see ./data/testdb.sql for the sql to create the words table.
-
-	```
-		$docker exec -it mysql_container bash
-		$mysql -uroot -pmysecretpassword
-		mysql> CREATE DATABASE testdb;
-		mysql> USE testdb;
-		mysql> CREATE TABLE `words` (
-		    ->   `word` varchar(50) NOT NULL,
-		    ->   `source` varchar(50) NOT NULL default '',
-		    ->   `offset` int(11) NOT NULL,
-		    ->   KEY `word` (`word`)
-		    -> ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COMMENT='Only words';
-		Query OK, 0 rows affected
-		mysql> exit
-		$exit
-	```
-
-- Rerun perl container: `$docker-compose up app`
 
 ## Books and Words
 

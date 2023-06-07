@@ -8,6 +8,41 @@ use vars qw( $source_file $x);
 my @words=();
 my $dbh;
 
+sub setUp {
+
+  my $dsn = "DBI:mysql:database=mysql;host=mysql_container";
+  my $username = "root";
+  my $password = "mysecretpassword";
+  my $options = {
+     mysql_enable_utf8mb4 => 1,
+     RaiseError => 1,
+     PrintError => 0,
+     AutoCommit => 1,
+   };
+
+  $dbh = DBI->connect($dsn, $username, $password, $options) 
+    or die $DBI::errstr;
+
+  my $sth = $dbh->prepare("CREATE DATABASE IF NOT EXISTS testdb");
+  $sth->execute() or die $DBI::errstr;
+
+  $sth = $dbh->prepare("USE testdb");
+  $sth->execute() or die $DBI::errstr;
+
+  $sth = $dbh->prepare("DROP TABLE IF EXISTS `words`;");
+  $sth->execute() or die $DBI::errstr;
+
+
+  $sth = $dbh->prepare("CREATE TABLE `words` (
+  `word` varchar(50) NOT NULL,
+  `source` varchar(50) NOT NULL default '',
+  `offset` int(11) NOT NULL,
+  KEY `word` (`word`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COMMENT='Only words';");
+  $sth->execute() or die $DBI::errstr;
+
+} 
+
 sub insertWord {
     my ($word) = @_;
     
