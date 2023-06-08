@@ -5,6 +5,7 @@ services:
     container_name: mysql_container
     environment:
       MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: testdb
     volumes:
       - ./database/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:

@@ -10,7 +10,7 @@ my $dbh;
 
 sub setUp {
 
-  my $dsn = "DBI:mysql:database=mysql;host=mysql_container";
+  my $dsn = "DBI:mysql:database=testdb;host=mysql_container";
   my $username = "root";
   my $password = "mysecretpassword";
   my $options = {
@@ -23,13 +23,7 @@ sub setUp {
   $dbh = DBI->connect($dsn, $username, $password, $options) 
     or die $DBI::errstr;
 
-  my $sth = $dbh->prepare("CREATE DATABASE IF NOT EXISTS testdb");
-  $sth->execute() or die $DBI::errstr;
-
-  $sth = $dbh->prepare("USE testdb");
-  $sth->execute() or die $DBI::errstr;
-
-  $sth = $dbh->prepare("DROP TABLE IF EXISTS `words`;");
+  my $sth = $dbh->prepare("DROP TABLE IF EXISTS `words`;");
   $sth->execute() or die $DBI::errstr;
 
 
