@@ -54,9 +54,6 @@ sub connect_db {
 
   $dbh = DBI->connect($dsn, $username, $password, $options) 
     or die $DBI::errstr;
-
-  my $sth = $dbh->prepare("USE testdb");
-  $sth->execute() or die $DBI::errstr;
 }
 
 # Closes dbh database connection
