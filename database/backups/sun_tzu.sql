@@ -1,6 +1,6 @@
 -- MySQL dump 10.10
 --
--- Host: localhost    Database: sun_tzu
+-- Host: mysql_container    Database: sun_tzu
 -- ------------------------------------------------------
 -- Server version	5.0.18-nt-log
 
@@ -14,6 +14,8 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+USE sun_tzu;
 
 --
 -- Table structure for table `punctuations`

@@ -37,7 +37,7 @@ sub removeExtension {
 #         MAIN
 ###############################################
 
-  my $waitingTime = 20; # Seconds
+  my $waitingTime = 25; # Seconds
   print "Sleeping " . $waitingTime . " seconds\n";
   sleep $waitingTime;
   print "Starting script\n";
