@@ -37,9 +37,10 @@ sub removeExtension {
 #         MAIN
 ###############################################
 
-  print "Sleeping 10 seconds";
-  sleep 10;
-  print "Starting script";
+  my $waitingTime = 20; # Seconds
+  print "Sleeping " . $waitingTime . " seconds\n";
+  sleep $waitingTime;
+  print "Starting script\n";
 
 BookDatabase::setUp();
 
