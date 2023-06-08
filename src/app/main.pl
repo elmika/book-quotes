@@ -48,3 +48,5 @@ my %bookInfo = getBookList("/usr/src/data/test/multiple-files");
 for(keys %bookInfo) {
   BookParser::importBook($_, $bookInfo{$_});
 } # for
+
+1;

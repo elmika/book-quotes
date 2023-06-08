@@ -57,8 +57,8 @@ sub importBook {
     $p->parse($line);
   }
   
-  BookDatabase::disconnect_db();  
   $p->eof; # flush and parse remaining unparsed HTML
+  BookDatabase::disconnect_db();  
 }
 
 1;

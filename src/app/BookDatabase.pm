@@ -80,10 +80,13 @@ sub insert_db {
     if(defined $myWord){ # Another hotly fixed safety net
       $y++;
       my $offset = $x+$y-$length;
-      $sth->execute($myWord, $source_file, $offset) or die $DBI::errstr;
+      $sth->execute($myWord, $source_file, $offset) 
+        or die $DBI::errstr;
     }
   }
-  $sth->finish();
+  $sth->finish()
+    or die $DBI::errstr;
+
   # $dbh->commit or die $DBI::errstr; 
 
 }
