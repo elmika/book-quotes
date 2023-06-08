@@ -2,6 +2,7 @@ use strict;
 
 use lib '/usr/src/app';
 use BookParser;
+use BookDatabase; # Angry database setup.
 
 # Get a hash of all: bookName => bookFullFilename in $some_dir
 sub getBookList {
@@ -36,7 +37,16 @@ sub removeExtension {
 #         MAIN
 ###############################################
 
+  my $waitingTime = 25; # Seconds
+  print "Sleeping " . $waitingTime . " seconds\n";
+  sleep $waitingTime;
+  print "Starting script\n";
+
+BookDatabase::setUp();
+
 my %bookInfo = getBookList("/usr/src/data/test/multiple-files");
 for(keys %bookInfo) {
   BookParser::importBook($_, $bookInfo{$_});
 } # for
+
+1;

@@ -8,6 +8,12 @@ use vars qw( $source_file $x);
 my @words=();
 my $dbh;
 
+sub setUp {
+
+  # No longer needed.
+
+} 
+
 sub insertWord {
     my ($word) = @_;
     
@@ -48,9 +54,6 @@ sub connect_db {
 
   $dbh = DBI->connect($dsn, $username, $password, $options) 
     or die $DBI::errstr;
-
-  my $sth = $dbh->prepare("USE testdb");
-  $sth->execute() or die $DBI::errstr;
 }
 
 # Closes dbh database connection
@@ -77,10 +80,13 @@ sub insert_db {
     if(defined $myWord){ # Another hotly fixed safety net
       $y++;
       my $offset = $x+$y-$length;
-      $sth->execute($myWord, $source_file, $offset) or die $DBI::errstr;
+      $sth->execute($myWord, $source_file, $offset) 
+        or die $DBI::errstr;
     }
   }
-  $sth->finish();
+  $sth->finish()
+    or die $DBI::errstr;
+
   # $dbh->commit or die $DBI::errstr; 
 
 }
